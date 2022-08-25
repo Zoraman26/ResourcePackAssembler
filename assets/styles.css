@@ -1,0 +1,14 @@
+body {
+  padding: 25px;
+  background-color: #18191A;
+  color: white;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: gray;
+  color: white;
+}
+#button-valid-pack {
+  visibility: hidden;
+}
