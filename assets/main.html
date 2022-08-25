@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  padding: 25px;
+  background-color: #18191A;
+  color: white;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: gray;
+  color: white;
+}
+#button-valid-pack {
+  visibility: hidden;
+}
+</style>
+</head>
+<body>
+<button onclick="folderselect()">Choose Resource pack</button>
+<button onclick="test()">Test Function</button>
+<button id="button-valid-pack" onclick="test()">Choose Texture</button>
+<div id="response-container"></div>
+<script>
+    const buttonvalidpack = document.querySelector("#button-valid-pack");
+    function destroy() {
+        pywebview.api.destroy()
+    }
+    function test() {
+        pywebview.api.test()
+    }
+    function folderselect() {
+        pywebview.api.folderselect()
+    }
+    function showResponse(response) {
+        var container = document.getElementById('response-container')
+
+        container.innerText = response.message
+        container.style.display = 'block'
+    }
+</script>
+
+</body>
+</html>
