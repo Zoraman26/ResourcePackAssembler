@@ -1,6 +1,6 @@
 import webview
 import os
-
+import shutil
 
 class Api:
     def destroy(self):
@@ -16,7 +16,12 @@ class Api:
         file_types = ('Image Files (*.png)', 'All files (*.*)')
         result = window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=True, file_types=file_types)
         print(result)
-
+        texturepath = result
+        if os.path.exists('Temp') == False:
+            os.mkdir('Temp')
+        window.getElementById("textureimage").src=texturepath;
+        print(texturepath[0])
+        shutil.copy2(texturepath[0], '\Temp')
 
 
     def folderselect(self):
