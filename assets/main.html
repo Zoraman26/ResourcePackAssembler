@@ -21,11 +21,14 @@ body {
 </head>
 <body>
 <button onclick="folderselect()">Choose Resource pack</button>
-<button onclick="test()">Test Function</button>
-<button id="button-valid-pack" onclick="test()">Choose Texture</button>
+<button id="button-valid-pack" onclick="textureselect()">Choose Texture</button>
+
+
 <div id="response-container"></div>
 <script>
-    const buttonvalidpack = document.querySelector("#button-valid-pack");
+    function showValidPackButton() {
+        document.getElementById("button-valid-pack").style.visibility="visible";
+    }
     function destroy() {
         pywebview.api.destroy()
     }
@@ -33,10 +36,14 @@ body {
         pywebview.api.test()
     }
     function folderselect() {
+        document.getElementById("button-valid-pack").style.visibility="hidden";
         pywebview.api.folderselect()
     }
+    function textureselect() {
+        pywebview.api.textureselect()
+    }
     function showResponse(response) {
-        var container = document.getElementById('response-container')
+        var container = main.getElementById('response-container')
 
         container.innerText = response.message
         container.style.display = 'block'
